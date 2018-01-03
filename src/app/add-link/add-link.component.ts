@@ -1,5 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { list } from '../link/link.model';
 
 @Component({
   selector: 'app-add-link',
@@ -20,9 +21,8 @@ export class AddLinkComponent implements OnInit {
   constructor() {}
   ngOnInit(){}
   onFormSubmit(){
-    this.linkSend.emit({
-      url:this.linkForm.value.url,
-      title:this.linkForm.value.title,
-      tag:this.linkForm.value.tag});
-  }
+    this.linkSend.emit(
+      new list(this.linkForm.value.url,this.linkForm.value.title,this.linkForm.value.tag)
+    )
+  };
 }
