@@ -4,7 +4,7 @@
 </button>
 
 <!-- Modal -->
-<form form [formGroup]="linkForm" (ngSubmit)="onSubmit()">
+<form form [formGroup]="linkForm" (ngSubmit)="onFormSubmit()">
   <div class="modal fade" id="addLinkForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -19,13 +19,17 @@
             <label>url</label>
             <input type='url' name="url" class="form-control" formControlName="url">
             <div *ngIf="linkForm.controls['url'].hasError('required')">
-                Url is required
+              Url is required
             </div>
           </div>
           <div class='form-group'>
-              <label>tag</label>
-              <input type='text' name="tag" class="form-control" formControlName="tag">
-            </div>
+            <label>Title</label>
+            <input type='text' name="title" class="form-control" formControlName="title">
+          </div>
+          <div class='form-group'>
+            <label>tag</label>
+            <input type='text' name="tag" class="form-control" formControlName="tag">
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

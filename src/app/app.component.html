@@ -1,18 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="row">
   <div class="col-3">
-    <div class="col-12">
-        <app-profile></app-profile>
-    </div>
-    <div class="col-12">
-      <app-add-link></app-add-link>
-    </div>
+    <app-profile [linksCounter]="linksCounter"></app-profile>
+    <br>
+    <app-add-link (linkSend)='onFormSubmitted($event)'></app-add-link>
   </div>
   <div class="col-6">
-    <app-search></app-search>
-    <app-link></app-link>
+    <app-search #noStorage [links]="links"></app-search>
   </div>
   <div class="col-3">
   </div>
 </div>
-
