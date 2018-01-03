@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddLinkComponent } from './add-link/add-link.component';
 import { FilterPipe } from './filter.pipe';
+import { LinksService } from './links.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { FilterPipe } from './filter.pipe';
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LinksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
