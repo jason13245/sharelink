@@ -9,7 +9,7 @@ export class AppComponent implements OnInit{
   title = 'app';
   links=[];
   myStorage = window.localStorage;
-  linksCounter =0;
+  linksCounter :number;
   ngOnInit(){
     if(this.myStorage.getItem('storedList')){
       this.links= JSON.parse(this.myStorage.getItem('storedList'));
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit{
       tag:formData.tag
     });
     localStorage.setItem('storedList',JSON.stringify(this.links));
-    this.linksCounter++;
+    this.linksCounter =this.links.length;
     localStorage.setItem('listCounter',JSON.stringify(this.linksCounter));
   }
 }
