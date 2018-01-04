@@ -1,7 +1,7 @@
 import * as express from 'express';
-require('dotenv').config()
+require('dotenv').config();
 
-const app = express()
+const app = express();
 
 app.use(express.static('frontend/dist'));
 

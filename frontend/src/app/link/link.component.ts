@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./link.component.css']
 })
 export class LinkComponent implements OnInit {
-
+  search:string;
   constructor() { }
   @Input() link: { url: string, title: string, tag: string }
   ngOnInit() {
