@@ -23,11 +23,6 @@ export class AppComponent implements OnInit{
     tag:string
   }){
     this.links.push(new list(formData.url,formData.title,formData.tag));
-    // this.links.push({
-    //   url: formData.url,
-    //   title:formData.title,
-    //   tag:formData.tag
-    // });
     localStorage.setItem('storedList',JSON.stringify(this.links));
     this.linksCounter =this.links.length;
     localStorage.setItem('listCounter',JSON.stringify(this.linksCounter));
