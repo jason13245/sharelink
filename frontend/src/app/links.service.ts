@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
-import { list } from './link/link.model';
+import { Link } from './link/link.model';
+import { HttpClient } from '@angular/common/http'
+import { Socket } from 'ng-socket-io';
+import 'rxjs/Rx';
 
 @Injectable()
 export class LinksService {
-  lists: list[]
-  constructor() {}
-  addlink(link:list){
-    return this.lists.push(link);
+  constructor(private http: HttpClient) {
+    
+    // setInterval(() => {
+      
+    // }, 10000)
   }
-  editlink(){}
-  deletelink(){}
-  updatelists(){
-    // transform lists[] to JSON
-    // put this JSON to redis
+
+  addlink(list: Link) {
+    return this.http.post('http://localhost:3000/api/link', list);
   }
-  getlists(){
-    // get the JSON from redis
-    // transform back to lists[]
-    return this.lists;
+  getlists() {
+    let linkObservable = this.http.get('/api/links');
+    return linkObservable.map((data: string[]) => {
+      return data.map((ele:string) => JSON.parse(ele));
+    });
   }
+
 }

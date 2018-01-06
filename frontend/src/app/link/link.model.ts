@@ -1,4 +1,4 @@
-export class list{
+export class Link{
     constructor(public url:string,public title:string,public tag:string){
         this.url=url;
         this.title=title;

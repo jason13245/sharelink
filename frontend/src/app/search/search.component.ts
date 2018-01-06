@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { LinksService } from '../links.service';
-import { list } from '../link/link.model';
+import { Link } from '../link/link.model';
 
 @Component({
   selector: 'app-search',
@@ -11,10 +11,10 @@ import { list } from '../link/link.model';
 export class SearchComponent implements OnInit {
 
   constructor(private linksService:LinksService) {}
-  links:list[];
+  links:Link[];
   
   search="";
   ngOnInit() {
-    this.links=this.linksService.getlists();
+    this.linksService.getlists().subscribe((links: any[]) => this.links = links);
   }
 }

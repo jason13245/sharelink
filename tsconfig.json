@@ -8,5 +8,8 @@
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": "."
-    }
+    },
+    "exclude": [
+        "frontend"
+    ]
 }

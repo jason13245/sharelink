@@ -2,11 +2,14 @@
 <div class="row">
   <div class="col-3">
     <app-profile ></app-profile>
-    <br>
-    <app-add-link ></app-add-link>
   </div>
   <div class="col-6">
-    <app-search ></app-search>
+      <nav>
+          <a routerLink='/addLink' routerLinkActive="active">Add link</a>
+          <br>
+          <a routerLink='/search' routerLinkActive="active">Search</a>
+        </nav>
+        <router-outlet></router-outlet>
   </div>
   <div class="col-3">
   </div>

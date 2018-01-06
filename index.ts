@@ -1,12 +1,14 @@
 import * as express from 'express';
+import router  from './router';
+import * as bodyParser from 'body-parser'
+//const router:express.Router = require('./router')();
+
 require('dotenv').config();
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(express.static('frontend/dist'));
-
-app.get('/links', (req: express.Request, res: express.Response) => {
-
-});
+app.use('/',router);
 
 app.listen(3000, () => console.log('Link Sharing app listening on port 3000!!'))

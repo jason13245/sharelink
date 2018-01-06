@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { list } from './link/link.model';
+import { Link } from './link/link.model';
 
 @Component({
   selector: 'app-root',
