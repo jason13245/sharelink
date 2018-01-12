@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { LinksService } from '../links.service';
 import { Link } from '../link/link.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +16,6 @@ export class SearchComponent implements OnInit {
   
   search="";
   ngOnInit() {
-    this.linksService.getlists().subscribe((links: any[]) => this.links = links);
+    this.linksService.getlists().subscribe((links: Link[]) => this.links = links);
   }
 }
