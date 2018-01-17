@@ -1,6 +1,6 @@
 import * as express from 'express'
 import { Router } from 'express';
-import { addlink, getlist } from './redis_server'
+import { addlink, getlist, addFd, getFd } from './redis_server'
 import { friendlist } from "./friendlist";
 //import { type } from 'os';
 
@@ -10,23 +10,24 @@ router.get('/', (req, res) => {
 });
 router.post('/api/link', (req, res) => {
     let data= JSON.stringify(req.body);
-    console.log(req.body);
-    console.log(typeof req.body);
     addlink(data);
-    res.json(req.body);
+    res.json();
 })
 router.get('/api/links', (req, res) => {
     getlist((result:any)=>{
-        console.log(result);
-        console.log(typeof result);
         res.json(result);
     });
-    
 })
 router.get('/api/getlist',(req,res)=>{
-    let data= friendlist;
-    //console.log(data);
-    res.json(data);
+    getFd((result:any)=>{
+        res.json(result);
+    })
+})
+
+router.post('/api/addFd',(req,res)=>{
+    let data = JSON.stringify(req.body);
+    addFd(data);
+    res.json('success');
 })
 
 export default router;
